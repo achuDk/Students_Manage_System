@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <a href="/add_classes/">添加条目</a>
+    </div>
+    <div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>名称</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in cls_list %}
+                    <tr>
+                        <td>
+                            {{ row.id }}
+                        </td>
+                        <td>
+                            {{ row.title }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
