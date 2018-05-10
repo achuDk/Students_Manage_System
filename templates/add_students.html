@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+<form action="/add_students" method="post">
+    {% csrf_token %}
+    <p>【注意】性别一项必须填写 male 或 female</p>
+    <p>姓名 <input type="text" name="name"></p>
+    <p>年龄 <input type="text" name="age"></p>
+    <p>性别 <input type="text" name="gender"></p>
+    <p>班级
+        {% for row in cls_list %}
+            <p>
+                <input type="radio" name="cid" value="{{ row.id }}">
+                {{ row.title }}
+            </p>
+        {% endfor %}
+    </p>
+    <p><input type="submit"></p>
+</form>
+</body>
+</html>

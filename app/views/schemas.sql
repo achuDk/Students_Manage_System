@@ -27,5 +27,6 @@ CREATE TABLE IF NOT EXISTS students (
   name VARCHAR(30) NOT NULL,
   age INT,
   gender ENUM('female','male'),
+  cid INT,
   FOREIGN KEY (cid) REFERENCES classes(id)
 );
