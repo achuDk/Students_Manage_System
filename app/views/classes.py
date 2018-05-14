@@ -4,7 +4,7 @@ from app.models_pymysql import *
 # 查看数据
 def get_classes(request):
     cls_list = sql_exe("select * from classes")
-    return render(request,'classes.html',locals())
+    return render(request,'get_classes.html',locals())
 
 # 增加数据
 def add_classes(request):

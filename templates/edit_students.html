@@ -13,9 +13,23 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/edit_students" method="post">
+<form action="/edit_students?sid={{ sid }}" method="post">
     {% csrf_token %}
-    <p>ID <input type="text" name=""></p>
+    <p>ID <input type="text" name="sid" value="{{ sid }}" readonly></p>
+    <p>姓名 <input type="text" name="name" value="{{ old_name }}"></p>
+    <p>年龄 <input type="text" name="age" value="{{ old_age }}"></p>
+    <p>
+        男<input type="radio" name="gender" value="male">
+        女<input type="radio" name="gender" value="female">
+    </p>
+    <p>班级
+        <select name="cid">
+            {% for row in cls_list %}
+            <option value="{{ row.id }}">{{ row.title }}</option>
+            {% endfor %}
+        </select>
+    </p>
+    <p><input type="submit"></p>
 </form>
 </body>
 </html>
