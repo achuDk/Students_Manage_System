@@ -1,6 +1,2 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
-# __author__ = "Q1mi"
-# Date: 2018/5/9
-
-
+from django.shortcuts import render,redirect
+from 

@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS teachers (
   name VARCHAR(30) NOT NULL
 );
 
-# 班级_教师-多对的哟_关系表
+# 班级_教师-多对多_关系表
 CREATE TABLE IF NOT EXISTS cls_tch (
   id INT PRIMARY KEY AUTO_INCREMENT,
   cid INT,

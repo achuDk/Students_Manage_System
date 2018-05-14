@@ -30,14 +30,16 @@ def edit_students(request):
         old_name = sql_exe('select name from students where id=%s'%sid)[0]['name']
         old_age = sql_exe('select age from students where id=%s'%sid)[0]['age']
         old_gender = sql_exe('select gender from students where id=%s'%sid)
-        old_class = sql_exe('select title from classes where id=(select cid from students where id=%s)'%sid)
+        old_class = sql_exe('select id,title from classes where id=(select cid from students where id=%s)'%sid)
+        print('+++++++>',old_class)
         return render(request,'edit_students.html',locals())
     if request.method == "POST":
         sid = request.GET.get('sid')
+        old_class = sql_exe('select id,title from classes where id=(select cid from students where id=%s)'%sid)
         new_name = request.POST.get('name')
         new_age = request.POST.get('age')
         new_gender = request.POST.get('gender')
         new_cid = request.POST.get('cid')
-        print('>>>>>>>>>>>',new_name,new_age,new_gender,new_cid)
+        # print('>>>>>>>>>>>',new_name,new_age,new_gender,new_cid)
         ret = sql_exe("update students set name='%s',age=%s,gender='%s',cid=%s where id=%s"%(new_name,new_age,new_gender,new_cid,sid))
         return redirect('/get_students')
