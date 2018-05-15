@@ -24,10 +24,16 @@ urlpatterns = [
     path('add_classes/',classes.add_classes),
     re_path(r'del_classes',classes.del_classes),
     re_path(r'edit_classes',classes.edit_classes),
+    re_path(r'appoint_teachers',classes.appoint_teachers),
 
     re_path(r'get_students',students.get_students),
     re_path(r'add_students',students.add_students),
     re_path(r'del_students',students.del_students),
     re_path(r'edit_students',students.edit_students),
 
+    re_path(r'get_teachers',teachers.get_teachers),
+    re_path(r'add_teachers',teachers.add_teachers),
+    re_path(r'del_teachers',teachers.del_teachers),
+    re_path(r'edit_teachers',teachers.edit_teachers),
+    re_path(r'appoint_classes',teachers.appoint_classes),
 ]

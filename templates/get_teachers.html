@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <title>多对多表间增删改查</title>
+</head>
+<body>
+    <h2>多对多表间增删改查</h2>
+    <br>
+    <div>
+        <table border="1">
+            <thead>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>教授班级</th>
+                <th>操作</th>
+            </thead>
+            <tbody>
+                {% for row in tch_list %}
+                    <tr>
+                        <td>{{ row.id }}</td>
+                        <td>{{ row.name }}</td>
+                        <td>
+                            {% for cls in cls_list %}
+                                {{ cls.title }}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <a href="/del_teachers?tid={{ row.id }}">删除</a>
+                            |
+                            <a href="/edit_teachers?tid={{ row.id }}">编辑</a>
+                            |
+                            <a href="/appoint_classes?tid={{ row.id }}">分配班级</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <a href="/add_teachers">添加教师</a>
+    </div>
+</body>
+</html>

@@ -39,3 +39,7 @@ def edit_classes(request):
         # print(">>>>>>",new_title)
         ret = sql_exe("update classes set title='%s' where id=%s"%(new_title,cls_id))
         return redirect('/get_classes/')
+
+
+def appoint_teachers(request):
+    return
