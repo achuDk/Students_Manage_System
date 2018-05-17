@@ -24,15 +24,11 @@
                 <th>操作</th>
             </thead>
             <tbody>
-                {% for row in tch_list %}
+                {% for row in cls_list %}
                     <tr>
                         <td>{{ row.id }}</td>
                         <td>{{ row.name }}</td>
-                        <td>
-                            {% for cls in cls_list %}
-                                {{ cls.title }}
-                            {% endfor %}
-                        </td>
+                        <td>{{ row.title }}</td>
                         <td>
                             <a href="/del_teachers?tid={{ row.id }}">删除</a>
                             |

@@ -3,8 +3,26 @@ from app.models_pymysql import *
 
 def get_teachers(request):
     tch_list = sql_exe('select * from teachers')
-    cls_list = sql_exe('show tables')
-    return  render(request,'get_teachers.html',{'tch_list':tch_list,'cls_list':cls_list})
+    # print('11111111',tch_list)
+    cls_list = sql_exe('select distinct t.id,t.name,c.title from teachers t,classes c,cls_tch ct where t.id=ct.tid and c.id=ct.cid order by t.id')
+    print('11111111111',cls_list)
+    # cid_list = []
+    # title_list = []
+    # for obj in tch_list:
+    #     tid = obj['id']
+    #     ret = sql_exe("select cid from teachers inner join cls_tch as ct on teachers.id = ct.tid where tid=%s" % tid)
+    #     for cid in ret:
+    #         cid = list(cid.values())[0]
+    #         cid_list.append(cid)
+    #
+    #     for cid in cid_list:
+    #         title = sql_exe("select title from classes where id=%s" % cid)[0]['title']
+    #         # print('222222',title)
+    #         title_list.append(title)
+    # print("111111111", cid_list)
+    # print("333333333",title_list)
+
+    return render(request,'get_teachers.html',{'tch_list':tch_list,'cls_list':cls_list})
 
 
 def add_teachers(request):
@@ -38,4 +56,6 @@ def edit_teachers(request):
 
 
 def appoint_classes(request):
+
+
     return
